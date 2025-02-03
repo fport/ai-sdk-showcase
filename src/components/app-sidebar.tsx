@@ -32,7 +32,7 @@ const items = [
 
 export function AppSidebar() {
   return (
-    <Sidebar className="border- border-gray-950">
+    <Sidebar className="border-l border-white/10">
       <SidebarHeader>
         <Link href="/" className="flex items-center gap-2 px-2 py-4">
           <div className="flex h-8 w-8 items-center justify-center bg-black">

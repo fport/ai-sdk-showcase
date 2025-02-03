@@ -5,58 +5,67 @@ export default function Home() {
     <div className="relative grid grid-rows-[1fr_auto] min-h-screen p-8 bg-black text-white font-mono">
       {/* Border Lines */}
       <div className="absolute inset-0 p-8">
-        {/* Main Border */}
-        <div className="w-full h-full border border-white/5 relative">
-          {/* Left Border Detail */}
-          <div className="absolute -left-px top-0 bottom-0 border-l border-white/10" />
+        {/* Main Container */}
+        <div className="w-full h-full border border-white/10 relative">
+          {/* Corner Decorations */}
+          {/* Top Left */}
+          <div className="absolute -top-1 -left-1 w-16 h-16">
+            <div className="absolute top-0 left-0 w-full h-px bg-white" />
+            <div className="absolute top-0 left-0 w-px h-full bg-white" />
+          </div>
           
-          {/* Top Border Detail */}
-          <div className="absolute -top-px left-0 right-0 border-t border-white/10" />
+          {/* Top Right */}
+          <div className="absolute -top-1 -right-1 w-16 h-16">
+            <div className="absolute top-0 right-0 w-full h-px bg-white" />
+            <div className="absolute top-0 right-0 w-px h-full bg-white" />
+          </div>
           
-          {/* Right Border Detail */}
-          <div className="absolute -right-px top-0 bottom-0 border-r border-white/10" />
+          {/* Bottom Left */}
+          <div className="absolute -bottom-1 -left-1 w-16 h-16">
+            <div className="absolute bottom-0 left-0 w-full h-px bg-white" />
+            <div className="absolute bottom-0 left-0 w-px h-full bg-white" />
+          </div>
           
-          {/* Bottom Border Detail */}
-          <div className="absolute -bottom-px left-0 right-0 border-b border-white/10" />
-
-          {/* Top Left Corner */}
-          <div className="absolute top-0 left-0">
-            <div className="relative w-40 h-40">
-              <div className="absolute bg-white/10 h-px w-full top-0 left-0" />
-              <div className="absolute bg-white/10 w-px h-full top-0 left-0" />
-            </div>
+          {/* Bottom Right */}
+          <div className="absolute -bottom-1 -right-1 w-16 h-16">
+            <div className="absolute bottom-0 right-0 w-full h-px bg-white" />
+            <div className="absolute bottom-0 right-0 w-px h-full bg-white" />
           </div>
 
-          {/* Top Right Corner - Cross/Plus Symbol */}
-          <div className="absolute -top-px -right-px">
-            <div className="relative w-40 h-40">
-              <div className="absolute bg-white h-px w-40 top-0 right-0" />
-              <div className="absolute bg-white w-px h-40 top-0 right-0" />
-            </div>
+          {/* Secondary Corner Details */}
+          {/* Top Left Inner */}
+          <div className="absolute top-4 left-4 w-8 h-8">
+            <div className="absolute top-0 left-0 w-full h-px bg-white/20" />
+            <div className="absolute top-0 left-0 w-px h-full bg-white/20" />
+          </div>
+          
+          {/* Top Right Inner */}
+          <div className="absolute top-4 right-4 w-8 h-8">
+            <div className="absolute top-0 right-0 w-full h-px bg-white/20" />
+            <div className="absolute top-0 right-0 w-px h-full bg-white/20" />
+          </div>
+          
+          {/* Bottom Left Inner */}
+          <div className="absolute bottom-4 left-4 w-8 h-8">
+            <div className="absolute bottom-0 left-0 w-full h-px bg-white/20" />
+            <div className="absolute bottom-0 left-0 w-px h-full bg-white/20" />
+          </div>
+          
+          {/* Bottom Right Inner */}
+          <div className="absolute bottom-4 right-4 w-8 h-8">
+            <div className="absolute bottom-0 right-0 w-full h-px bg-white/20" />
+            <div className="absolute bottom-0 right-0 w-px h-full bg-white/20" />
           </div>
 
-          {/* Bottom Right Corner */}
-          <div className="absolute bottom-0 right-0">
-            <div className="relative w-40 h-40">
-              <div className="absolute bg-white/10 h-px w-full bottom-0 right-0" />
-              <div className="absolute bg-white/10 w-px h-full bottom-0 right-0" />
-            </div>
-          </div>
-
-          {/* Bottom Left Corner */}
-          <div className="absolute bottom-0 left-0">
-            <div className="relative w-40 h-40">
-              <div className="absolute bg-white/10 h-px w-full bottom-0 left-0" />
-              <div className="absolute bg-white/10 w-px h-full bottom-0 left-0" />
-            </div>
-          </div>
+          {/* Center Border Lines */}
+          <div className="absolute inset-8 border border-white/5" />
         </div>
       </div>
 
       <main className="relative flex flex-col items-center justify-center gap-8 max-w-4xl mx-auto w-full">
         {/* Header Section */}
         <div className="text-center space-y-4 mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">
             Unlocking AI with Next.js
           </h1>
           <p className="text-lg md:text-xl text-gray-400">
@@ -68,29 +77,16 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row gap-6 w-full max-w-2xl justify-center">
           <Link 
             href="/case/generate-text" 
-            className="flex items-center gap-2 px-6 py-3 border border-white/10 hover:bg-white/5 transition-colors rounded-none group"
+            className="flex items-center gap-2 px-6 py-3 border border-white/10 hover:bg-white/5 transition-all duration-300 group relative"
           >
-            <span className="text-white/60 group-hover:text-white/90 transition-colors">→</span> Generate Text
-          </Link>
-          
-          <Link 
-            href="/case/generate-image" 
-            className="flex items-center gap-2 px-6 py-3 border border-white/10 hover:bg-white/5 transition-colors rounded-none group"
-          >
-            <span className="text-white/60 group-hover:text-white/90 transition-colors">→</span> Generate Image
-          </Link>
-          
-          <Link 
-            href="/case/generate-blabla" 
-            className="flex items-center gap-2 px-6 py-3 border border-white/10 hover:bg-white/5 transition-colors rounded-none group"
-          >
-            <span className="text-white/60 group-hover:text-white/90 transition-colors">→</span> Generate BlaBla
+            <span className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <span className="text-white/60 group-hover:text-white/90 transition-colors">→</span> Example Case's
           </Link>
         </div>
       </main>
 
       {/* Footer Section */}
-      <footer className="relative flex justify-between items-center p-8 border-t border-white/10">
+      <footer className="relative flex justify-between items-center p-10 border-t border-white/10 ">
         <span className="text-white/80">Furkan Portakal</span>
         <Link 
           href="https://github.com/fport" 
