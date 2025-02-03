@@ -67,21 +67,21 @@ export default function Home() {
         {/* Buttons Section */}
         <div className="flex flex-col sm:flex-row gap-6 w-full max-w-2xl justify-center">
           <Link 
-            href="/generate-text" 
+            href="/case/generate-text" 
             className="flex items-center gap-2 px-6 py-3 border border-white/10 hover:bg-white/5 transition-colors rounded-none group"
           >
             <span className="text-white/60 group-hover:text-white/90 transition-colors">→</span> Generate Text
           </Link>
           
           <Link 
-            href="/generate-image" 
+            href="/case/generate-image" 
             className="flex items-center gap-2 px-6 py-3 border border-white/10 hover:bg-white/5 transition-colors rounded-none group"
           >
             <span className="text-white/60 group-hover:text-white/90 transition-colors">→</span> Generate Image
           </Link>
           
           <Link 
-            href="/generate-blabla" 
+            href="/case/generate-blabla" 
             className="flex items-center gap-2 px-6 py-3 border border-white/10 hover:bg-white/5 transition-colors rounded-none group"
           >
             <span className="text-white/60 group-hover:text-white/90 transition-colors">→</span> Generate BlaBla
