@@ -1,22 +1,20 @@
-import { AppSidebar } from "@/components/app-sidebar";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-
-export default function CaseLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import { AppSidebar } from "@/components/app-sidebar"
+import { BreadcrumbNav } from "@/components/breadcrumb"
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+ 
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen bg-white text-black">
-        <AppSidebar />
-        
-        <SidebarInset className="flex-1">
-          <div className="p-8">
-            {children}
+      <AppSidebar />
+      <main className="flex-1 p-8">
+        <div className="mx-auto max-w-6xl space-y-6">
+          <div className="flex items-center justify-between">
+            <BreadcrumbNav />
+            <SidebarTrigger />
           </div>
-        </SidebarInset>
-      </div>
+          {children}
+        </div>
+      </main>
     </SidebarProvider>
-  );
+  )
 }
