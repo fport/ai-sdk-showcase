@@ -8,7 +8,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem
 } from "@/components/ui/sidebar"
-import { Activity, ImageIcon, TextIcon } from "lucide-react"
+import { Activity, ImageIcon } from "lucide-react"
 import Link from "next/link"
 
 // Menu items.
@@ -37,11 +37,6 @@ const items = [
     title: "Generate Image",
     url: "/case/generate-image",
     icon: ImageIcon,
-  },
-  {
-    title: "Generate Text",
-    url: "/case/generate-text",
-    icon: TextIcon,
   },
 ]
 
