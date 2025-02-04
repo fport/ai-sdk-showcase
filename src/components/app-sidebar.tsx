@@ -14,8 +14,23 @@ import Link from "next/link"
 // Menu items.
 const items = [
   {
-    title: "Case",
-    url: "/case",
+    title: "Generate Text",
+    url: "/case/generate-text",
+    icon: Activity,
+  },
+  {
+    title: "Streaming Text",
+    url: "/case/streaming-text",
+    icon: Activity,
+  },
+  {
+    title: "Chatbot Message Persistence",
+    url: "/case/chatbot-message-persistence",
+    icon: Activity,
+  },
+  {
+    title: "Structured Outputs",
+    url: "/case/structured-outputs",
     icon: Activity,
   },
   {

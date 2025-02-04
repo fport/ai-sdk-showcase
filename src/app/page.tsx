@@ -80,7 +80,7 @@ export default function Home() {
             className="flex items-center gap-2 px-6 py-3 border border-white/10 hover:bg-white/5 transition-all duration-300 group relative"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            <span className="text-white/60 group-hover:text-white/90 transition-colors">→</span> Example Case's
+            <span className="text-white/60 group-hover:text-white/90 transition-colors">→</span> go to showcase
           </Link>
         </div>
       </main>
