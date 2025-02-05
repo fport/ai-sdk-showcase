@@ -24,13 +24,13 @@ const items = [
     icon: Activity,
   },
   {
-    title: "Chatbot Message Persistence",
-    url: "/case/chatbot-message-persistence",
+    title: "Generate Object",
+    url: "/case/generate-object",
     icon: Activity,
   },
   {
-    title: "Structured Outputs",
-    url: "/case/structured-outputs",
+    title: "Chatbot Message Persistence",
+    url: "/case/chatbot-message-persistence",
     icon: Activity,
   },
   {

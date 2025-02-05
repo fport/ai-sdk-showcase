@@ -13,7 +13,7 @@ const codeExample = `
   return result.toDataStreamResponse();
 `;
 
-export default function GenerateText() {
+export default function StreamingText() {
   const suggestions = getRandomSuggestions(4, "text");
   return (
     <div className="flex flex-col gap-8 p-6">
