@@ -29,8 +29,8 @@ const items = [
     icon: Activity,
   },
   {
-    title: "Chatbot Message Persistence",
-    url: "/case/chatbot-message-persistence",
+    title: "Stream Object",
+    url: "/case/stream-object",
     icon: Activity,
   },
   {

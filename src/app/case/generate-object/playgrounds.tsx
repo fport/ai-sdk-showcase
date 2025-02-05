@@ -64,24 +64,8 @@ export default function Playground({structuredSuggestion}: PlaygroundProps) {
 
   return (
     <div className="w-full space-y-4">
-      <Card className="border-muted/50 bg-muted/30">
-        <CardContent className="p-4">
-          <div className="flex items-start gap-2">
-            <span className="text-xs uppercase text-muted-foreground">
-              Schema:
-            </span>
-            <div className="flex-1">
-              <pre className="whitespace-pre-wrap text-sm">
-                {JSON.stringify(structuredSuggestion.schema, null, 2)}
-              </pre>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
       <PromptInput
         value={structuredSuggestion.prompt}
-        suggestions={[structuredSuggestion]}
         onSubmit={handleSubmit}
         isLoading={isLoading}
         placeholder="Enter your prompt here..."

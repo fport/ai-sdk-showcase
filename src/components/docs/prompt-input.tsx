@@ -7,7 +7,7 @@ import { ArrowUp, ArrowUpRight, RefreshCw } from "lucide-react";
 import { useState } from "react";
 
 interface PromptInputProps {
-  suggestions: Suggestion[];
+  suggestions?: Suggestion[];
   onSubmit: (input: string) => Promise<void>;
   isLoading?: boolean;
   placeholder?: string;
@@ -32,7 +32,7 @@ export function PromptInput({
   disabled = false,
 }: PromptInputProps) {
   const [internalValue, setInternalValue] = useState("");
-  const [suggestions, setSuggestions] = useState<Suggestion[]>(initSuggestions);
+  const [suggestions, setSuggestions] = useState<Suggestion[]>(initSuggestions ?? []);
 
   // Handle controlled vs uncontrolled input
   const value = externalValue !== undefined ? externalValue : internalValue;
@@ -82,7 +82,7 @@ export function PromptInput({
         />
         <div className="flex items-center justify-between pt-1">
           <div className="flex-1 flex items-center gap-2 overflow-x-auto no-scrollbar">
-            {showRefreshSuggestions && (
+            {showRefreshSuggestions && suggestions && suggestions.length > 0 && (
               <Button
                 onClick={updateSuggestions}
                 disabled={disabled}
@@ -93,7 +93,7 @@ export function PromptInput({
                 <RefreshCw className="h-4 w-4" />
               </Button>
             )}
-            {showSuggestions && suggestions.map((suggestion, index) => (
+            {showSuggestions && suggestions && suggestions.map((suggestion, index) => (
               <Button
                 key={index}
                 variant="outline"
