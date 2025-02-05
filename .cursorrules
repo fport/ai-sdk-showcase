@@ -1,0 +1,50 @@
+# RESUME KITCHEN AI ASSISTANT RULES
+# ================================
+#
+# ⚠️ CRITICAL INSTRUCTIONS ⚠️
+
+rules:
+  # ALWAYS check and follow @technical-guidelines.md
+  technical_guidelines:
+    priority: HIGHEST
+    location: docs/technical-guidelines.md
+    purpose: >
+      This file contains all technical standards and rules of the project.
+      You MUST read and follow these guidelines BEFORE making ANY changes.
+      All coding standards, architectural decisions, and best practices are defined here.
+    action_required: >
+      1. Check this file first for every new task
+      2. Ensure your changes comply with the guidelines
+      3. Update and extend guidelines when necessary
+
+  # Continuously track and update project progress
+  progress_tracking:
+    priority: HIGH
+    location: docs/project_progress.md
+    purpose: >
+      This file tracks project progress and all changes.
+      Progress files MUST be updated after each change.
+    files:
+      project_goals: Project objectives and current status
+      project_progress: Detailed record of changes
+      phases: Project phases and milestones
+    action_required: >
+      1. Record every significant change
+      2. Update current status
+      3. Define and plan next steps
+
+  # Follow this workflow for every change
+  change_workflow:
+    steps:
+      1: Read and understand @technical-guidelines.md
+      2: Plan change and verify compliance with guidelines
+      3: Implement change
+      4: Update progress files. (@progress_tracking)
+
+  # Critical notes
+  important_notes: >
+    - Technical Guidelines are the project's constitution, ALWAYS follow them
+    - Progress tracking is the project's memory, NEVER neglect it
+    - Every change MUST be documented
+    - When in doubt, ALWAYS refer to relevant documentation
+
