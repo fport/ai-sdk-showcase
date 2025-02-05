@@ -11,6 +11,7 @@ import {
 import { ChevronRight, Home } from "lucide-react"
 import { usePathname } from "next/navigation"
 import * as React from "react"
+import { ModeToggle } from "./mode-toggle"
 import { SidebarTrigger } from "./ui/sidebar"
 
 export function BreadcrumbNav() {
@@ -18,11 +19,14 @@ export function BreadcrumbNav() {
   const segments = pathname.split("/").filter(Boolean)
 
   return (
-    <Breadcrumb className="border-b border-white/10 w-full p-4 bg-sidebar">
+    <Breadcrumb className="border-b border-white/10 w-full px-4 bg-sidebar">
       <BreadcrumbList>
         <BreadcrumbItem>
-          <div className="flex items-center gap-2 border-r border-white/10 pr-4">
+          <div className="flex items-center border-r border-white/10 pr-4 h-12">
             <SidebarTrigger />
+          </div>
+          <div className="flex items-center border-r border-white/10 px-4 h-12">
+            <ModeToggle />
           </div>
           <BreadcrumbLink href="/" className="flex items-center pl-4">
             <Home className="h-4 w-4" />
