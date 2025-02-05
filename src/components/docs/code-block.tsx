@@ -4,13 +4,9 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import { Check, Copy, Terminal } from "lucide-react"
-import Prism from "prismjs"
-import "prismjs/components/prism-javascript"
-import "prismjs/components/prism-jsx"
-import "prismjs/components/prism-tsx"
-import "prismjs/components/prism-typescript"
-import "prismjs/themes/prism-tomorrow.css"
 import * as React from "react"
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism"
 
 interface CodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {
   code: string
@@ -27,13 +23,8 @@ export function CodeBlock({
   showCopy = true,
   title,
   className,
-  ...props
 }: CodeBlockProps) {
   const [copied, setCopied] = React.useState(false)
-
-  React.useEffect(() => {
-    Prism.highlightAll()
-  }, [])
 
   const copyToClipboard = async () => {
     try {
@@ -45,29 +36,26 @@ export function CodeBlock({
     }
   }
 
-  const lines = code.trim().split("\n")
-  const paddingWidth = String(lines.length).length
-
   return (
-    <Card className="relative overflow-hidden border-muted/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <Card className="relative overflow-hidden border-muted/30 bg-zinc-950 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/90">
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-muted/20 bg-muted/50 px-4 py-3">
+      <div className="flex items-center justify-between border-b border-muted/20 bg-zinc-900/70 px-4 py-2.5">
         <div className="flex items-center gap-2">
-          <Terminal className="h-4 w-4 text-muted-foreground" />
-          <span className="text-sm font-medium">
+          <Terminal className="h-4 w-4 text-muted-foreground/70" />
+          <span className="text-sm font-medium text-zinc-300">
             {title || `${language.charAt(0).toUpperCase()}${language.slice(1)} Example`}
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground">{language}</div>
+          <div className="rounded-md bg-zinc-800/70 px-2 py-1 text-xs font-medium text-zinc-400">{language}</div>
           {showCopy && (
             <Button
               size="icon"
               variant="ghost"
-              className="h-8 w-8 transition-colors hover:bg-muted"
+              className="h-8 w-8 transition-colors hover:bg-zinc-800/70"
               onClick={copyToClipboard}
             >
-              {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+              {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4 text-zinc-400" />}
               <span className="sr-only">Copy code</span>
             </Button>
           )}
@@ -75,19 +63,27 @@ export function CodeBlock({
       </div>
 
       {/* Code content */}
-      <div className="relative">
-        <pre className={cn("overflow-x-auto p-4 text-sm", showLineNumbers && "pl-12", className)} {...props}>
-          {showLineNumbers && (
-            <div aria-hidden="true" className="absolute left-4 top-4 select-none text-sm text-muted-foreground/50">
-              {lines.map((_, index) => (
-                <div key={index + 1} className="leading-6" style={{ width: `${paddingWidth}ch` }}>
-                  {index + 1}
-                </div>
-              ))}
-            </div>
-          )}
-          <code className={`language-${language} leading-6`}>{code}</code>
-        </pre>
+      <div className="relative font-mono text-[13px]">
+        <div className={cn("overflow-x-auto", className)}>
+          <SyntaxHighlighter
+            language={language}
+            style={atomDark}
+            showLineNumbers={showLineNumbers}
+            customStyle={{
+              margin: 0,
+              padding: '1rem',
+              background: 'transparent',
+            }}
+            codeTagProps={{
+              style: {
+                fontSize: '13px',
+                lineHeight: '1.5',
+              }
+            }}
+          >
+            {code}
+          </SyntaxHighlighter>
+        </div>
       </div>
     </Card>
   )
